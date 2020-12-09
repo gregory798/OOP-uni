@@ -27,10 +27,7 @@ class Mesure{
         }
     }
 
-    public int howManyNotNull(){
-        return 5;
-    }
-
+   
     public void moyenne(){
         double sum = 0;
         int j = 0;
