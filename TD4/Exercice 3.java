@@ -1,10 +1,3 @@
-/*
-
-TODO : "La taille initiale du tableau interne sera de 10 éléments, et sera incrémentée de 10 à chaque fois
- que cela sera nécessaire. On ne devra pas avoir plus de 30 cases inutilisées dans le tableau."
-
- */
-
 class Vecteur{
     private int [] tab;
     private int nbElem;
@@ -15,7 +8,7 @@ class Vecteur{
 
     void add(int n){
         nbElem++;
-        if (nbElem < tab.length){
+        if (nbElem <= tab.length){
             for (int i=0; i<tab.length; i++){
                 if(tab[i]==0){
                     tab[i] = n;
@@ -24,8 +17,10 @@ class Vecteur{
             }
         }else{
             tab = new int[tab.length+10];
+            System.out.println("\n-------------------------------\nCapacité maximale atteinte.\nAjoutez vos éléments dans ce nouveau tableau :\n");
+            }
         }
-    }
+
 
     int getCapacity(){
         return tab.length;
@@ -35,13 +30,14 @@ class Vecteur{
         return nbElem;
     }
 
-    void afficher(){
-        System.out.print("[ ");
+    public String toString(){
+        String s = "";
         for(int i = 0; i<tab.length; i++){
-            System.out.print(" |"+tab[i]+"| ");
+            s += " {"+tab[i]+"} ";
         }
-        System.out.println(" ]");
+        return "[ " + s + " ]";
     }
+
 
     int get(int n){
         return tab[n];
@@ -55,19 +51,36 @@ class Vecteur{
 
     public static void main(String[] args) {
         Vecteur v1 = new Vecteur();
-        v1.add(888);
-        v1.add(777);
-        v1.add(666);
-        v1.add(555);
-        v1.afficher();
-        v1.remove(2);
-        v1.afficher();
+        v1.add(1);
+        v1.add(2);
+        v1.add(3);
+        v1.add(4);
+        v1.add(5);
+        v1.add(6);
+        v1.add(7);
+        v1.add(8);
+        v1.add(9);
+        System.out.println(v1);
+        v1.add(10);
+        System.out.println(v1);
+        v1.add(11);
+        System.out.println(v1);
+        v1.add(1);
+        System.out.println(v1);
 
-        /*
-        [  |888|  |777|  |666|  |555|  |0|  |0|  |0|  |0|  |0|  |0|  ]
-        [  |888|  |777|  |555|  |0|  |0|  |0|  |0|  |0|  |0|  |0|  ]
+/*
+          
+[  {1}  {2}  {3}  {4}  {5}  {6}  {7}  {8}  {9}  {0}  ]
+[  {1}  {2}  {3}  {4}  {5}  {6}  {7}  {8}  {9}  {10}  ]
 
-         */
+-------------------------------
+Capacité maximale atteinte.
+Ajoutez vos éléments dans ce nouveau tableau :
+
+[  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  ]
+[  {1}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  {0}  ]
+           
+*/
 
     }
 }
